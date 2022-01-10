@@ -9,5 +9,7 @@ public class GridTest {
         Grid grid = new Grid(4,8);
 
         Cell cell = grid.addCell();
+
+        assertEquals(true, cell.isAlive());
     }
 }
