@@ -12,7 +12,7 @@ public class Grid {
         return rows * columns;
     }
 
-    public Cell addCell() {
-        return new Cell();
+    public Cell addCell(int row, int column) {
+        return new Cell(row, column);
     }
 }
