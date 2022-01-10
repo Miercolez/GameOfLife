@@ -9,6 +9,6 @@ public class Grid {
     }
 
     public int size() {
-        return 48;
+        return rows * columns;
     }
 }
