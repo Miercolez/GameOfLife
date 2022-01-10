@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class GameOfLifeTest {
 
     @Test
@@ -7,5 +9,7 @@ public class GameOfLifeTest {
         GameOfLife gameOfLife = new GameOfLife();
 
         int actual = gameOfLife.createGrid(6,8);
+
+        assertEquals(48, actual);
     }
 }
