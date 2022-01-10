@@ -2,6 +2,7 @@ public class Cell {
 
     private final int row;
     private final int column;
+    private boolean isAlive = false;
 
     public Cell(int row, int column) {
         this.row = row;
@@ -9,7 +10,7 @@ public class Cell {
     }
 
     public boolean isAlive() {
-        return true;
+        return this.isAlive;
     }
 
     public int row() {
@@ -18,5 +19,9 @@ public class Cell {
 
     public int column() {
         return this.column;
+    }
+
+    public void isAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
 }

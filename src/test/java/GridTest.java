@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
 
@@ -26,6 +25,15 @@ public class GridTest {
 
         assertEquals(2, cell.row());
         assertEquals(4, cell.column());
+    }
+
+    @Test
+    void add_dead_cells_to_list_returns_cell_isAlive_false() {
+        Grid grid = new Grid(4,8);
+
+        grid.addDeadCells();
+
+        assertFalse(grid.getCellFromList(1, 1).isAlive());
     }
 
 }
