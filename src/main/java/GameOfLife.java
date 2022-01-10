@@ -1,6 +1,6 @@
 public class GameOfLife {
 
-    public int createGrid(int rows, int columns) {
-        return 48;
+    public Grid createGrid(int rows, int columns) {
+        return new Grid(rows, columns);
     }
 }
