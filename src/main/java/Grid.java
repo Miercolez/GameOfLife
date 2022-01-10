@@ -1,17 +1,17 @@
 public class Grid {
 
-    private final int rows;
-    private final int columns;
+    private final int MAX_ROWS;
+    private final int MAX_COLUMNS;
     private final Cell[][] cells;
 
     public Grid(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
+        this.MAX_ROWS = rows;
+        this.MAX_COLUMNS = columns;
         this.cells = new Cell[rows][columns];
     }
 
     public int size() {
-        return rows * columns;
+        return MAX_ROWS * MAX_COLUMNS;
     }
 
     public void addCell(int row, int column) {
@@ -25,8 +25,8 @@ public class Grid {
     }
 
     public void addDeadCells() {
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
+        for (int row = 0; row < MAX_ROWS; row++) {
+            for (int column = 0; column < MAX_COLUMNS; column++) {
                 cells[row][column] = new Cell(row + 1, column + 1);
             }
         }
