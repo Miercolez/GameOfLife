@@ -11,4 +11,8 @@ public class Grid {
     public int size() {
         return rows * columns;
     }
+
+    public Cell addCell() {
+        return new Cell();
+    }
 }
