@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CellTest {
 
@@ -11,6 +11,18 @@ public class CellTest {
                 .createCell();
 
         cell.neighbours(3);
-        assertEquals(true, cell.isAlive());
+        cell.checkExistence();
+        assertTrue(cell.isAlive());
+    }
+
+    @Test
+    void cell_with_1_neighbours_returns_isAlive_false() {
+        Cell cell = new CellBuilder()
+                .position(new Position(1,1))
+                .createCell();
+
+        cell.neighbours(1);
+        cell.checkExistence();
+        assertFalse(cell.isAlive());
     }
 }

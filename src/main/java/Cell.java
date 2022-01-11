@@ -2,6 +2,7 @@ public class Cell {
 
     private final Position position;
     private boolean isAlive = false;
+    private int neighbours;
 
     public Cell(Position position, boolean isAlive) {
         this.position = position;
@@ -12,15 +13,19 @@ public class Cell {
         return this.isAlive;
     }
 
-    public void isAlive(boolean isAlive) {
-        this.isAlive = isAlive;
-    }
-
     public Position position() {
         return position;
     }
 
     public void neighbours(int neighbours) {
-        this.isAlive = true;
+        this.neighbours = neighbours;
+    }
+
+    public void checkExistence(){
+        if (neighbours == 3){
+            isAlive = true;
+        }else {
+            isAlive = false;
+        }
     }
 }
