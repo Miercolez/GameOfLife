@@ -4,7 +4,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CellTest {
+class CellTest {
 
     @ParameterizedTest
     @ValueSource(ints = {2, 3})

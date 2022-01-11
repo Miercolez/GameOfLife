@@ -1,8 +1,9 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class GameOfLifeTest {
+class GameOfLifeTest {
 
     @Test
     void create_grid_6_by_8_returns_48() {
@@ -33,6 +34,11 @@ public class GameOfLifeTest {
                 .addCell(2,6)
                 .createGameOfLife();
 
+        gameOfLife.renderNextRound();
+
+        Grid grid = gameOfLife.getGrid();
+        assertFalse(grid.getCellFromList(2, 6).isAlive());
+        assertEquals(0, grid.stream().filter(Cell::isAlive).count());
     }
 
 }

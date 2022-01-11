@@ -9,4 +9,8 @@ public class GameOfLife {
     public Grid getGrid() {
         return grid;
     }
+
+    public void renderNextRound() {
+        grid.calculateNeighbours();
+    }
 }

@@ -24,4 +24,8 @@ public class Cell {
     public void checkExistence(){
         isAlive = 2 == neighbours || neighbours == 3;
     }
+
+    public void addNeighbours(int neighbours) {
+        this.neighbours = neighbours;
+    }
 }
