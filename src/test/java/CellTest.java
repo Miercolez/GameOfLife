@@ -17,13 +17,14 @@ public class CellTest {
         assertTrue(cell.isAlive());
     }
 
-    @Test
-    void cell_with_1_neighbours_returns_isAlive_false() {
+    @ParameterizedTest
+    @ValueSource(ints = {0,1})
+    void cell_with_less_than_2_neighbours_returns_isAlive_false(int neighbours) {
         Cell cell = new CellBuilder()
                 .position(new Position(1,1))
                 .createCell();
 
-        cell.neighbours(1);
+        cell.neighbours(neighbours);
         cell.checkExistence();
         assertFalse(cell.isAlive());
     }
