@@ -2,7 +2,6 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class Grid {
-
     private final int MAX_ROWS;
     private final int MAX_COLUMNS;
     private final Cell[][] cells;
@@ -19,7 +18,7 @@ public class Grid {
     }
 
     public void addCell(int row, int column) {
-        this.cells[row - 1][column - 1] =  new Cell(row, column);
+        this.cells[row - 1][column - 1] =  new Cell(new Position(row,column));
         this.cells[row - 1][column - 1].isAlive(true);
     }
 
@@ -30,12 +29,14 @@ public class Grid {
     public void addDeadCells() {
         for (int row = 0; row < MAX_ROWS; row++) {
             for (int column = 0; column < MAX_COLUMNS; column++) {
-                cells[row][column] = new Cell(row + 1, column + 1);
+                cells[row][column] = new Cell(new Position(row + 1, column + 1));
             }
         }
     }
 
+
     public Stream<Cell> stream() {
         return Arrays.stream(cells).flatMap(Arrays::stream);
     }
+
 }

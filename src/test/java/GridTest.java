@@ -12,8 +12,8 @@ public class GridTest {
 
         Cell cell = grid.getCellFromList(2,4);
 
-        assertEquals(2, cell.row());
-        assertEquals(4, cell.column());
+        assertEquals(2, cell.position().row());
+        assertEquals(4, cell.position().column());
     }
 
     @Test
