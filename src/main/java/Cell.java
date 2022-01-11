@@ -1,7 +1,7 @@
 public class Cell {
 
     private final Position position;
-    private boolean isAlive = false;
+    private boolean isAlive;
     private int neighbours;
 
     public Cell(Position position, boolean isAlive) {
@@ -22,10 +22,6 @@ public class Cell {
     }
 
     public void checkExistence(){
-        if (neighbours == 2 || neighbours == 3){
-            isAlive = true;
-        }else {
-            isAlive = false;
-        }
+        isAlive = neighbours == 2 || neighbours == 3;
     }
 }
