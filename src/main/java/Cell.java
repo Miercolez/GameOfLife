@@ -22,6 +22,6 @@ public class Cell {
     }
 
     public void checkExistence(){
-        isAlive = neighbours == 2 || neighbours == 3;
+        isAlive = 2 == neighbours || neighbours == 3;
     }
 }

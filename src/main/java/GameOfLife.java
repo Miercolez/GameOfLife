@@ -1,6 +1,12 @@
 public class GameOfLife {
 
-    public Grid createGrid(int rows, int columns) {
-        return new Grid(rows, columns);
+    private final Grid grid;
+
+    public GameOfLife(Grid grid) {
+        this.grid = grid;
+    }
+
+    public Grid getGrid() {
+        return grid;
     }
 }
