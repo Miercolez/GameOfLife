@@ -6,13 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CellTest {
 
-    @Test
-    void cell_with_3_neighbours_returns_isAlive_true() {
+    @ParameterizedTest
+    @ValueSource(ints = {2, 3})
+    void cell_with_2_or_3_neighbours_returns_isAlive_true(int neighbours) {
         Cell cell = new CellBuilder()
                 .position(new Position(1,1))
                 .createCell();
 
-        cell.neighbours(3);
+        cell.neighbours(neighbours);
         cell.checkExistence();
         assertTrue(cell.isAlive());
     }

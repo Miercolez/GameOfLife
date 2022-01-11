@@ -22,7 +22,7 @@ public class Cell {
     }
 
     public void checkExistence(){
-        if (neighbours == 3){
+        if (neighbours == 2 || neighbours == 3){
             isAlive = true;
         }else {
             isAlive = false;
