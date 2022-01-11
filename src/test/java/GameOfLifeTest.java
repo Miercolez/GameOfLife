@@ -26,4 +26,13 @@ public class GameOfLifeTest {
         assertEquals(32, grid.size());
     }
 
+    @Test
+    void add_one_cell_returns_all_cells_isAlive_false_next_round() {
+        GameOfLife gameOfLife = new GameOfLifeBuilder()
+                .createGrid(4,8)
+                .addCell(2,6)
+                .createGameOfLife();
+
+    }
+
 }

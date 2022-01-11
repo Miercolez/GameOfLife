@@ -6,6 +6,11 @@ public class GameOfLifeBuilder {
         return this;
     }
 
+    public GameOfLifeBuilder addCell(int row, int column) {
+        grid.addCell(row,column);
+        return this;
+    }
+
     public GameOfLife createGameOfLife() {
         return new GameOfLife(grid);
     }
