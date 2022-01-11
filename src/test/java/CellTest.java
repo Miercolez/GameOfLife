@@ -1,19 +1,19 @@
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CellTest {
+class CellTest {
 
-    @ParameterizedTest
-    @ValueSource(ints = {2, 3})
-    void cell_with_2_or_3_neighbours_returns_isAlive_true(int neighbours) {
+    @Test
+    void cell_with_3_neighbours_returns_isAlive_true() {
         Cell cell = new CellBuilder()
                 .position(new Position(1,1))
                 .createCell();
 
-        cell.neighbours(neighbours);
+        cell.neighbours(3);
         cell.checkExistence();
         assertTrue(cell.isAlive());
     }

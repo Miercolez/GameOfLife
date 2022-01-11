@@ -42,4 +42,31 @@ public class Grid {
         return Arrays.stream(cells).flatMap(Arrays::stream);
     }
 
+    public void calculateNeighbours() {
+        stream().forEach(this::increaseNeighbours);
+        stream().forEach(Cell::checkExistence);
+    }
+
+    private void increaseNeighbours(Cell activeCell) {
+        int amountOfNeighbours = (int) stream()
+                .filter(cell -> isPosNextToCurrent(cell.position(), activeCell.position()))
+                .filter(cell -> cell.position() != activeCell.position())
+                .filter(Cell::isAlive)
+                .count();
+
+        activeCell.addNeighbours(amountOfNeighbours);
+    }
+
+    private boolean isPosNextToCurrent(Position neighbourPos, Position currentPos) {
+        return isRowNextToCurrent(neighbourPos,currentPos) && isColumnNextToCurrent(neighbourPos,currentPos);
+    }
+
+    private boolean isRowNextToCurrent(Position neighbourPos, Position currentPos) {
+        return neighbourPos.row() >= currentPos.previousRow() && neighbourPos.row() <= currentPos.nextRow();
+    }
+
+    private boolean isColumnNextToCurrent(Position neighbourPos, Position currentPos) {
+        return neighbourPos.column() >= currentPos.previousColumn() && neighbourPos.column() <= currentPos.nextColumn();
+    }
+
 }

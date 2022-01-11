@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GridTest {
+class GridTest {
 
     @Test
     void add_cell_row_2_column_4_returns_cell_row_2_column_4() {
