@@ -19,4 +19,8 @@ public class Cell {
     public Position position() {
         return position;
     }
+
+    public void neighbours(int neighbours) {
+        this.isAlive = true;
+    }
 }
