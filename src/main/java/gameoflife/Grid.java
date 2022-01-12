@@ -1,3 +1,7 @@
+package gameoflife;
+
+import gameoflife.builders.CellBuilder;
+
 import java.util.Arrays;
 import java.util.stream.Stream;
 

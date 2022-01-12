@@ -1,3 +1,8 @@
+package gameoflife.builders;
+
+import gameoflife.GameOfLife;
+import gameoflife.Grid;
+
 public class GameOfLifeBuilder {
     private Grid grid;
 

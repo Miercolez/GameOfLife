@@ -1,3 +1,5 @@
+package gameoflife;
+
 public record Position(int row, int column) {
 
     private int previousRow(){

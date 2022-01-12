@@ -1,3 +1,5 @@
+package gameoflife;
+
 public class Cell {
 
     private final Position position;

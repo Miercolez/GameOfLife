@@ -1,3 +1,8 @@
+package gameoflife.builders;
+
+import gameoflife.Cell;
+import gameoflife.Position;
+
 public class CellBuilder {
     private Position position;
     private boolean isAlive;
