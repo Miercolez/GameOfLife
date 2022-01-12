@@ -14,7 +14,7 @@ class CellTest {
                 .createCell();
 
         cell.neighbours(2);
-        cell.checkExistence();
+        cell.existence();
         assertFalse(cell.isAlive());
     }
 
@@ -25,7 +25,7 @@ class CellTest {
                 .createCell();
 
         cell.neighbours(3);
-        cell.checkExistence();
+        cell.existence();
         assertTrue(cell.isAlive());
     }
 
@@ -38,7 +38,7 @@ class CellTest {
                 .createCell();
 
         cell.neighbours(neighbours);
-        cell.checkExistence();
+        cell.existence();
         assertTrue(cell.isAlive());
     }
 
@@ -50,7 +50,7 @@ class CellTest {
                 .createCell();
 
         cell.neighbours(neighbours);
-        cell.checkExistence();
+        cell.existence();
         assertFalse(cell.isAlive());
     }
 
@@ -62,7 +62,7 @@ class CellTest {
                 .createCell();
 
         cell.neighbours(neighbours);
-        cell.checkExistence();
+        cell.existence();
         assertFalse(cell.isAlive());
     }
 }

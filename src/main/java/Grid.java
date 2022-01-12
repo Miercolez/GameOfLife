@@ -42,9 +42,13 @@ public class Grid {
         return Arrays.stream(cells).flatMap(Arrays::stream);
     }
 
+    public void calculateNextRound() {
+        calculateNeighbours();
+        checkExistence();
+    }
+
     public void calculateNeighbours() {
         stream().forEach(this::increaseNeighbours);
-        stream().forEach(Cell::checkExistence);
     }
 
     private void increaseNeighbours(Cell activeCell) {
@@ -55,6 +59,10 @@ public class Grid {
                 .count();
 
         activeCell.addNeighbours(amountOfNeighbours);
+    }
+
+    public void checkExistence() {
+        stream().forEach(Cell::existence);
     }
 
     private boolean isPosNextToCurrent(Position neighbourPos, Position currentPos) {

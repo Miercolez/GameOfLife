@@ -11,6 +11,6 @@ public class GameOfLife {
     }
 
     public void renderNextRound() {
-        grid.calculateNeighbours();
+        grid.calculateNextRound();
     }
 }
