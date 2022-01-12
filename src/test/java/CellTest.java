@@ -8,6 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CellTest {
 
     @Test
+    void cell_with_2_neighbours_and_is_dead_returns_isAlive_false() {
+        Cell cell = new CellBuilder()
+                .position(new Position(1,1))
+                .createCell();
+
+        cell.neighbours(2);
+        cell.checkExistence();
+        assertFalse(cell.isAlive());
+    }
+
+    @Test
     void cell_with_3_neighbours_returns_isAlive_true() {
         Cell cell = new CellBuilder()
                 .position(new Position(1,1))
