@@ -30,6 +30,19 @@ class CellTest {
     }
 
     @ParameterizedTest
+    @ValueSource(ints = {2,3})
+    void cell_with_2_or_3_neighbours_and_is_not_dead_returns_isAlive_true(int neighbours) {
+        Cell cell = new CellBuilder()
+                .position(new Position(1,1))
+                .isAlive(true)
+                .createCell();
+
+        cell.neighbours(neighbours);
+        cell.checkExistence();
+        assertTrue(cell.isAlive());
+    }
+
+    @ParameterizedTest
     @ValueSource(ints = {0,1})
     void cell_with_less_than_2_neighbours_returns_isAlive_false(int neighbours) {
         Cell cell = new CellBuilder()
