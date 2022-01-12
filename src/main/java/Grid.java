@@ -37,11 +37,6 @@ public class Grid {
             }
         }
     }
-
-    public Stream<Cell> stream() {
-        return Arrays.stream(cells).flatMap(Arrays::stream);
-    }
-
     public void calculateNextRound() {
         calculateNeighbours();
         checkExistence();
@@ -53,7 +48,7 @@ public class Grid {
 
     private void increaseNeighbours(Cell activeCell) {
         int amountOfNeighbours = (int) stream()
-                .filter(cell -> isPosNextToCurrent(cell.position(), activeCell.position()))
+                .filter(cell -> activeCell.position().isPosNextToCurrent(cell.position()))
                 .filter(cell -> cell.position() != activeCell.position())
                 .filter(Cell::isAlive)
                 .count();
@@ -65,16 +60,9 @@ public class Grid {
         stream().forEach(Cell::existence);
     }
 
-    private boolean isPosNextToCurrent(Position neighbourPos, Position currentPos) {
-        return isRowNextToCurrent(neighbourPos,currentPos) && isColumnNextToCurrent(neighbourPos,currentPos);
+    public Stream<Cell> stream() {
+        return Arrays.stream(cells).flatMap(Arrays::stream);
     }
 
-    private boolean isRowNextToCurrent(Position neighbourPos, Position currentPos) {
-        return neighbourPos.row() >= currentPos.previousRow() && neighbourPos.row() <= currentPos.nextRow();
-    }
-
-    private boolean isColumnNextToCurrent(Position neighbourPos, Position currentPos) {
-        return neighbourPos.column() >= currentPos.previousColumn() && neighbourPos.column() <= currentPos.nextColumn();
-    }
 
 }
