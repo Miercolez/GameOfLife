@@ -41,4 +41,20 @@ class GameOfLifeTest {
         assertEquals(0, grid.stream().filter(Cell::isAlive).count());
     }
 
+    @Test
+    void three_cells_in_a_row_returns_three_alive_cells_next_round() {
+        GameOfLife gameOfLife = new GameOfLifeBuilder()
+                .createGrid(4,8)
+                .addCell(2,6)
+                .addCell(2,5)
+                .addCell(2,4)
+                .createGameOfLife();
+
+        gameOfLife.renderNextRound();
+
+        Grid grid = gameOfLife.getGrid();
+        assertFalse(grid.getCellFromList(2, 6).isAlive());
+        assertEquals(3, grid.stream().filter(Cell::isAlive).count());
+    }
+
 }
