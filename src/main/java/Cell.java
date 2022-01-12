@@ -28,4 +28,8 @@ public class Cell {
     public void addNeighbours(int neighbours) {
         this.neighbours = neighbours;
     }
+
+    public void addNeighbours(int neighbours) {
+        this.neighbours = neighbours;
+    }
 }
