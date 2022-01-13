@@ -76,5 +76,21 @@ class GameOfLifeTest {
         assertTrue(grid.getCellFromList(3, 4).isAlive());
     }
 
+    @Test
+    void four_cells_in_a_triangle_returns_seven_cells_alive() {
+        GameOfLife gameOfLife = new GameOfLifeBuilder()
+                .createGrid(4,8)
+                .addCell(2,4)
+                .addCell(3,3)
+                .addCell(3,4)
+                .addCell(3,5)
+                .createGameOfLife();
+
+        gameOfLife.renderNextRound();
+
+        Grid grid = gameOfLife.getGrid();
+        assertEquals(7, grid.stream().filter(Cell::isAlive).count());
+    }
+
 
 }
