@@ -3,8 +3,7 @@ package gameoflife;
 import gameoflife.builders.GameOfLifeBuilder;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GameOfLifeTest {
 
@@ -59,5 +58,23 @@ class GameOfLifeTest {
         assertFalse(grid.getCellFromList(2, 6).isAlive());
         assertEquals(3, grid.stream().filter(Cell::isAlive).count());
     }
+
+    @Test
+    void three_cells_in_a_row_returns_two_new_cells_alive() {
+        GameOfLife gameOfLife = new GameOfLifeBuilder()
+                .createGrid(4,8)
+                .addCell(2,3)
+                .addCell(2,4)
+                .addCell(2,5)
+                .createGameOfLife();
+
+        gameOfLife.renderNextRound();
+
+        Grid grid = gameOfLife.getGrid();
+        assertTrue(grid.getCellFromList(1, 4).isAlive());
+        assertTrue(grid.getCellFromList(2, 4).isAlive());
+        assertTrue(grid.getCellFromList(3, 4).isAlive());
+    }
+
 
 }

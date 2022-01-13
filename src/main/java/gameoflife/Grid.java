@@ -47,11 +47,11 @@ public class Grid {
     }
 
     public void calculateNeighbours() {
-        stream().forEach(this::increaseNeighbours);
+        this.stream().forEach(this::increaseNeighbours);
     }
 
     private void increaseNeighbours(Cell activeCell) {
-        int amountOfNeighbours = (int) stream()
+        int amountOfNeighbours = (int) this.stream()
                 .filter(cell -> activeCell.position().isPosNextToCurrent(cell.position()))
                 .filter(cell -> cell.position() != activeCell.position())
                 .filter(Cell::isAlive)
