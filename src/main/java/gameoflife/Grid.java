@@ -21,11 +21,15 @@ public class Grid {
         return MAX_ROWS * MAX_COLUMNS;
     }
 
-    public void addCell(int row, int column) {
-        this.cells[row - 1][column - 1] = new CellBuilder()
-                .position(new Position(row, column))
-                .isAlive(true)
-                .createCell();
+    public void addCell(int row, int column){
+        try{
+            this.cells[row - 1][column - 1] = new CellBuilder()
+                    .position(new Position(row, column))
+                    .isAlive(true)
+                    .createCell();
+        }catch (ArrayIndexOutOfBoundsException e){
+            throw new ArrayIndexOutOfBoundsException("The position of the cell is outside the grid.");
+        }
     }
 
     public Cell getCellFromList(int row, int column) {
@@ -33,7 +37,7 @@ public class Grid {
     }
 
     public void addDeadCells() {
-       for (int row = 0; row < MAX_ROWS; row++) {
+        for (int row = 0; row < MAX_ROWS; row++) {
             for (int column = 0; column < MAX_COLUMNS; column++) {
                 cells[row][column] = new CellBuilder()
                         .position(new Position(row + 1, column + 1))
@@ -41,6 +45,7 @@ public class Grid {
             }
         }
     }
+
     public void calculateNextRound() {
         calculateNeighbours();
         checkExistence();
