@@ -19,6 +19,13 @@ class GridTest {
     }
 
     @Test
+    void add_cell_outside_from_grid_size_returns_ArrayIndexOutOfBoundsException() {
+        Grid grid = new Grid(4, 8);
+        var ArrayIndexOutOfBounds = assertThrows(ArrayIndexOutOfBoundsException.class, () -> grid.addCell(1, 10));
+        assertEquals("The position of the cell is outside the grid.", ArrayIndexOutOfBounds.getMessage());
+    }
+
+    @Test
     void add_dead_cells_to_list_returns_cell_isAlive_false() {
         Grid grid = new Grid(4,8);
 
