@@ -81,15 +81,25 @@ class GameOfLifeTest {
         GameOfLife gameOfLife = new GameOfLifeBuilder()
                 .createGrid(4,8)
                 .addCell(2,4)
-                .addCell(3,3)
-                .addCell(3,4)
-                .addCell(3,5)
+                .addCell(3, 3)
+                .addCell(3, 4)
+                .addCell(3, 5)
                 .createGameOfLife();
 
         gameOfLife.renderNextRound();
 
         Grid grid = gameOfLife.getGrid();
         assertEquals(7, grid.stream().filter(Cell::isAlive).count());
+    }
+
+    @Test
+    void create_grid_returns_all_cells_isAlive_false() {
+        GameOfLife gameOfLife = new GameOfLifeBuilder()
+                .createGrid(4, 8)
+                .createGameOfLife();
+
+        Grid grid = gameOfLife.getGrid();
+        assertEquals(0, grid.stream().filter(Cell::isAlive).count());
     }
 
 

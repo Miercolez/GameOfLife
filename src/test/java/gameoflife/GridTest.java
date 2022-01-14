@@ -34,15 +34,6 @@ class GridTest {
     }
 
     @Test
-    void add_dead_cells_to_list_returns_cell_isAlive_false() {
-        Grid grid = new Grid(4,8);
-
-        grid.addDeadCells();
-
-        assertFalse(grid.getCellFromList(1, 1).isAlive());
-    }
-
-    @Test
     void add_two_cells_returns_two_cells_alive() {
         Grid grid = new Grid(4,8);
 
