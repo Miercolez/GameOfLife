@@ -17,26 +17,18 @@ public class Grid {
         addDeadCells();
     }
 
-    public int columns() {
-        return MAX_COLUMNS;
-    }
-
-    public int rows() {
-        return MAX_ROWS;
-    }
-
     public int size() {
         return MAX_ROWS * MAX_COLUMNS;
     }
 
-    public void addCell(int row, int column) {
-        try {
+    public void addCell(int row, int column){
+        try{
             this.cells[row - 1][column - 1] = new CellBuilder()
                     .position(new Position(row, column))
                     .isAlive(true)
                     .createCell();
         }catch (ArrayIndexOutOfBoundsException e){
-            throw new ArrayIndexOutOfBoundsException("The position of the cell is outside the grid.");
+            throw new ArrayIndexOutOfBoundsException("The position of the cell is outside of the grid.");
         }
     }
 
