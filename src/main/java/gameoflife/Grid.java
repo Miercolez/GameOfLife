@@ -70,7 +70,7 @@ public class Grid {
                 .filter(Cell::isAlive)
                 .count();
 
-        activeCell.addNeighbours(amountOfNeighbours);
+        activeCell.neighbours(amountOfNeighbours);
     }
 
     public void checkExistence() {
