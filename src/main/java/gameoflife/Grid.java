@@ -41,7 +41,11 @@ public class Grid {
     }
 
     public Cell getCellFromList(int row, int column) {
-        return this.cells[row - 1][column - 1];
+        try {
+            return this.cells[row - 1][column - 1];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new ArrayIndexOutOfBoundsException("The position of the cell is outside the grid.");
+        }
     }
 
     private void addDeadCells() {
