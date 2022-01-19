@@ -60,7 +60,7 @@ public class Grid {
 
     public void calculateNextRound() {
         calculateNeighbours();
-        checkExistence();
+        checkCellLife();
     }
 
     public void calculateNeighbours() {
@@ -77,8 +77,8 @@ public class Grid {
         activeCell.neighbours(amountOfNeighbours);
     }
 
-    public void checkExistence() {
-        stream().forEach(Cell::existence);
+    public void checkCellLife() {
+        stream().forEach(Cell::checkCellLife);
     }
 
     public Stream<Cell> stream() {

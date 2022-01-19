@@ -23,7 +23,7 @@ public class Cell {
         this.neighbours = neighbours;
     }
 
-    public void existence(){
+    public void checkCellLife() {
         this.isAlive = neighbours == 3 || (neighbours == 2 && this.isAlive);
     }
 }
