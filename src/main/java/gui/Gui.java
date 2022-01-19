@@ -11,8 +11,8 @@ import java.awt.*;
 public class Gui extends JFrame {
     JButton nextRoundBtn = new JButton();
     JButton[][] visualCells;
-    JPanel gp = new JPanel();
-    JPanel jp = new JPanel();
+    JPanel gridPanel = new JPanel();
+    JPanel btnPanel = new JPanel();
 
     public static void main(String[] args) {
         new Gui();
@@ -55,13 +55,13 @@ public class Gui extends JFrame {
         setSize(800, 1000);
         isLightweight();
         setLayout(new GridLayout(2, 1));
-        gp.setLayout(new GridLayout(grid.rows(), grid.columns()));
-        jp.setLayout(new GridLayout(5, 1));
-        jp.setBorder(new EmptyBorder(10, 100, 10, 100));
+        gridPanel.setLayout(new GridLayout(grid.rows(), grid.columns()));
+        btnPanel.setLayout(new GridLayout(5, 1));
+        btnPanel.setBorder(new EmptyBorder(10, 100, 10, 100));
         nextRoundBtn.setText("Next Round");
-        jp.add(nextRoundBtn);
-        add(gp);
-        add(jp);
+        btnPanel.add(nextRoundBtn);
+        add(gridPanel);
+        add(btnPanel);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -76,11 +76,10 @@ public class Gui extends JFrame {
                 } else {
                     visualCells[i][j].setBackground(Color.white);
                 }
-                gp.add(visualCells[i][j]);
+                gridPanel.add(visualCells[i][j]);
             }
         }
     }
-
 
     private void addCellsToVisualCells(Grid grid) {
         for (int i = 0; i < grid.rows(); i++) {
